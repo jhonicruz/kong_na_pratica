@@ -39,6 +39,7 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
+      - KONG_INTERNAL_URL=http://kong:8000
     depends_on:
       - kong
     healthcheck:
