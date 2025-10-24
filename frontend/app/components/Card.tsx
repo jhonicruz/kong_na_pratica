@@ -54,7 +54,9 @@ const CardDemo = () => {
 
           <CardContent>
             {!response && (
-              <div className="text-sm text-muted-foreground">Sem requisições ainda. Clique em &quot;Pagar Agora&quot; para começar.</div>
+              <div className="text-sm text-muted-foreground">
+                Sem requisições ainda. Clique em &quot;Pagar Agora&quot; para começar.
+              </div>
             )}
 
             {response && (

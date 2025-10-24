@@ -14,14 +14,8 @@ export type ActionState = {
   error?: string;
 };
 
-export async function enviarPagamento(
-  _prevState: ActionState,
-  _formData: FormData
-): Promise<ActionState> {
-  const base =
-    process.env.KONG_INTERNAL_URL ||
-    process.env.NEXT_PUBLIC_API_URL ||
-    "http://localhost:8000";
+export async function enviarPagamento(_prevState: ActionState, _formData: FormData): Promise<ActionState> {
+  const base = process.env.KONG_INTERNAL_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
   try {
     const res = await fetch(`${base}/api/enviar`, {
