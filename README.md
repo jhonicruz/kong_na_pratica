@@ -273,11 +273,13 @@ docker compose exec kong curl -s http://localhost:8001/upstreams | jq
 ### Antes de Subir para o GitHub
 
 1. **Variáveis de Ambiente**:
+
    - NUNCA comite arquivos `.env`
    - Use o `.env.example` como template
    - Gere senhas fortes para produção
 
 2. **Portas e Acessos**:
+
    - Admin API do Kong não está exposta publicamente
    - Portas dos backends só devem ser expostas em desenvolvimento
    - Use HTTPS em produção
