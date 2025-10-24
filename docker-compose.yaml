@@ -63,6 +63,7 @@ services:
       - app-net
     environment:
       - PORT=4000
+      - INSTANCE_ID=backend-1
       - NODE_ENV=production
     ports:
       - "4000:4000"
@@ -74,7 +75,7 @@ services:
           "--no-verbose",
           "--tries=1",
           "--spider",
-          "http://localhost:4000",
+          "http://localhost:4000/health",
         ]
       interval: 10s
       timeout: 5s
@@ -86,10 +87,11 @@ services:
     networks:
       - app-net
     environment:
-      - PORT=4001
+      - PORT=4000
+      - INSTANCE_ID=backend-2
       - NODE_ENV=production
     ports:
-      - "4001:4001"
+      - "4001:4000"
     healthcheck:
       test:
         [
@@ -98,7 +100,7 @@ services:
           "--no-verbose",
           "--tries=1",
           "--spider",
-          "http://localhost:4001",
+          "http://localhost:4000/health",
         ]
       interval: 10s
       timeout: 5s
@@ -110,10 +112,11 @@ services:
     networks:
       - app-net
     environment:
-      - PORT=4002
+      - PORT=4000
+      - INSTANCE_ID=backend-3
       - NODE_ENV=production
     ports:
-      - "4002:4002"
+      - "4002:4000"
     healthcheck:
       test:
         [
@@ -122,7 +125,7 @@ services:
           "--no-verbose",
           "--tries=1",
           "--spider",
-          "http://localhost:4002",
+          "http://localhost:4000/health",
         ]
       interval: 10s
       timeout: 5s

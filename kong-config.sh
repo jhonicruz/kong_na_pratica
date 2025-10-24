@@ -23,8 +23,8 @@ curl -sSf -X POST ${KONG_ADMIN_URL}/upstreams --data "name=backend-upstream" || 
 
 echo "Adding targets"
 curl -sSf -X POST ${KONG_ADMIN_URL}/upstreams/backend-upstream/targets --data "target=backend-1:4000" --data "weight=100" || true
-curl -sSf -X POST ${KONG_ADMIN_URL}/upstreams/backend-upstream/targets --data "target=backend-2:4001" --data "weight=100" || true
-curl -sSf -X POST ${KONG_ADMIN_URL}/upstreams/backend-upstream/targets --data "target=backend-3:4002" --data "weight=100" || true
+curl -sSf -X POST ${KONG_ADMIN_URL}/upstreams/backend-upstream/targets --data "target=backend-2:4000" --data "weight=100" || true
+curl -sSf -X POST ${KONG_ADMIN_URL}/upstreams/backend-upstream/targets --data "target=backend-3:4000" --data "weight=100" || true
 
 echo "Upserting service pointing to upstream (no service path to avoid duplication)"
 # Use PUT to upsert the service by name and ensure no 'path' is set
